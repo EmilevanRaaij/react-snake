@@ -1,0 +1,46 @@
+.game{
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+}
+
+.node{
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 1/1;
+    border: 1px solid gray;
+    overflow: hidden;
+}
+
+.node.snake{
+    border-color: lightblue;
+}
+
+.node img{
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.node.head{
+    transition: transform .1s;
+    border: none;
+}
+
+.head.right img{
+    transform: rotate(90deg);
+}
+.head.left img{
+    transform: rotate(-90deg);
+}
+.head.down img{
+    transform: rotate(180deg);
+}
+.head.up img{
+    transform: rotate(0deg);
+}

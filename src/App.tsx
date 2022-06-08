@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component, createRef} from "react";
+import './index.css';
+import Snake from './Snake';
+import apple from './apple.png';
+import head from './face.png';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component<{},{score:number}>{
+    constructor(props:any){
+        super(props);
+        this.state = {
+            score: 0
+        }
+    }
+
+    Scorechanged = (s:number) => {
+        this.setState({
+            score: s
+        });
+    }
+
+    render(){
+        return(
+            <div className='snakewrapper'>
+                <Snake
+                scorechange={this.Scorechanged}
+                startinglength={3}
+                snakecolor={'#345ed1'}
+                headcolor={'#345ed1'}
+                pixels={12} 
+                appleimg={apple} 
+                backgroundcolor={'#279e03'}
+                headimg={head}
+                speed={150}
+                />
+                <h1>{this.state.score}</h1>
+            </div>
+        );
+    }
 }
 
 export default App;
