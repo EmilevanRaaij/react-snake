@@ -65,7 +65,6 @@ class Node extends Component<{
 interface Requiredprops{
     pixels:number, 
     appleimg:any, 
-    headimg:any, 
     speed:number,
     snakecolor:any,
     headcolor:any,
@@ -75,7 +74,8 @@ interface Requiredprops{
 
 interface Optionalprops{
     backgroundcolor?:any,
-    backgroundimg?:any
+    backgroundimg?:any,
+    headimg?:any, 
 }
 
 interface Totalprops extends Requiredprops, Optionalprops{};
