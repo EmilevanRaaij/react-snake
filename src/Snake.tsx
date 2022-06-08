@@ -68,13 +68,13 @@ interface Requiredprops{
     speed:number,
     snakecolor:any,
     headcolor:any,
-    scorechange: any,
     startinglength: number
 }
 
 interface Optionalprops{
     backgroundcolor?:any,
     backgroundimg?:any,
+    scorechange?: any,
     headimg?:any, 
 }
 
@@ -114,7 +114,11 @@ class Snake extends Component<Totalprops,{
         if(nodestates[newheadlocation] == this.props.pixels*this.props.pixels+1){//new head location on apple
             let leng = this.state.length;
             this.setState({length:leng+1}, () => {
-                this.props.scorechange(this.state.length - this.props.startinglength);
+                try{
+                    this.props.scorechange(this.state.length - this.props.startinglength);
+                }catch{
+
+                }
                 this.nextLoop(nodestates, newheadlocation);
                 this.generateApple();
             });
@@ -178,6 +182,18 @@ class Snake extends Component<Totalprops,{
         if(e.keyCode === 40 && this.state.direction != -this.props.pixels){//arrow down
             this.setState({direction:this.props.pixels});
         }
+        if(e.keyCode === 65 && this.state.direction != 1){//A
+            this.setState({direction:-1});
+        }
+        if(e.keyCode === 87 && this.state.direction != this.props.pixels){//W
+            this.setState({direction:-this.props.pixels});
+        }
+        if(e.keyCode === 68 && this.state.direction != -1){//D
+            this.setState({direction:1});
+        }
+        if(e.keyCode === 83 && this.state.direction != -this.props.pixels){//S
+            this.setState({direction:this.props.pixels});
+        }
     }
 
     randomNumberInRange(min:number, max:number) {
@@ -215,7 +231,9 @@ class Snake extends Component<Totalprops,{
             this.setState({nodestates: n}, () => {
                 this.setNodeActive(this.state.headlocation, this.state.nodestates);
                 this.generateApple();
-                this.props.scorechange(0);
+                try{
+                    this.props.scorechange(0);
+                }catch{}
                 this.loop();
             });
         });

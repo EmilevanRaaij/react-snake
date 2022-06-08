@@ -12,11 +12,23 @@ In the project directory, you can run:
 
 ### `npm run eject`
 
+# Controls
+
+### Enter - start game
+
+### Arrow up | W - up
+
+### Arrow Right | D - right
+
+### Arrow down | S - down
+
+### Arrow left | A - left
+
 # The Snake component
 
-## props
+# props
 
-### pixels
+## pixels
 
 Required: Yes
 
@@ -24,7 +36,7 @@ Type: Integer
 
 The height and width of the game
 
-### speed
+## speed
 
 Required: Yes 
 
@@ -32,7 +44,7 @@ Type: Integer
 
 The amount of millisconds between frames; less time means a faster snake
 
-### startinglength
+## startinglength
 
 Required: Yes
 
@@ -40,7 +52,7 @@ Type: Integer
 
 The length of the snake when the game begins
 
-### appleimg
+## appleimg
 
 Required: Yes 
 
@@ -48,7 +60,7 @@ Type: Image
 
 The image to be displayed as apple
 
-### headimg
+## headimg
 
 Required: No
 
@@ -56,7 +68,7 @@ Type: Image
 
 The image for the head of the snake
 
-### backgroundimage
+## backgroundimage
 
 Required: No
 
@@ -64,15 +76,15 @@ Type: Image
 
 The background image for the game
 
-### backgroundcolor
+## backgroundcolor
 
 Required: No
 
 Type: String
 
-The background color for the game overrides [backgroundimage]
+The background color for the game overrides **backgroundimage**
 
-### snakecolor
+## snakecolor
 
 Required: Yes
 
@@ -80,7 +92,7 @@ Type: String
 
 The color for the body of the snake
 
-### headcolor
+## headcolor
 
 Required: Yes
 
@@ -88,7 +100,7 @@ Type: String
 
 The color for the head of the snake
 
-### scorechange
+## scorechange
 
 Required: No
 
@@ -96,9 +108,9 @@ Type: Function
 
 Callback function when the score changes, gives a score
 
-#### example:
+#### example in typescript:
 ```
-callback(score:any){
+callback(score:number){
     console.log(score)
 }
 
